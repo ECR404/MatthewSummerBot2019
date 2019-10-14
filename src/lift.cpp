@@ -1,0 +1,112 @@
+#include "main.h"
+#include "lift.h"
+
+enum IntakeState
+{
+  intaking = 0,
+  outtaking = 1,
+};
+
+LiftControl::LiftControl()
+{
+  liftState = 0;
+  intakeState = IntakeState::intaking;
+}
+
+void LiftControl::Loop()
+{
+  switch(liftState)
+  {
+    case 1:
+      liftMotor.move_absolute(300, 1000);
+      // triBar.move_absolute(-200, 1000);
+      break;
+    case 2:
+      liftMotor.move_absolute(550, 1000);
+      break;
+    case 0:
+      // liftMotor.move_voltage(0);
+      break;
+  }
+
+  if(liftState > 0)
+  {
+    if(ControllerButton(ControllerDigital::up).changedToPressed())
+    {
+      intakeMotorLeft.move(-127);
+      intakeMotorRight.move(-127);
+    }
+    if(ControllerButton(ControllerDigital::down).changedToPressed())
+    {
+      intakeMotorLeft.move(127);
+      intakeMotorRight.move(127);
+    }
+
+    triBar.moveAbsolute(-300, 1000);
+  }
+}
+
+void LiftControl::handleIntakeOuttake()
+{
+  if(ControllerButton(ControllerDigital::up).changedToPressed())
+    intakeState = IntakeState::outtaking;
+  if(ControllerButton(ControllerDigital::down).changedToPressed())
+    intakeState = IntakeState::intaking;
+}
+
+void LiftControl::stepUp()
+{
+  switch(liftState)
+  {
+    case 0:
+      setToSmallCup();
+      break;
+    case 1:
+      setToTallCup();
+      break;
+    case 2:
+      break;
+  }
+}
+
+int LiftControl::getState()
+{
+  return liftState;
+}
+
+void LiftControl::stepDown()
+{
+  switch(liftState)
+  {
+    case 2:
+      setToSmallCup();
+      break;
+    case 1:
+      reset();
+      break;
+    case 0:
+      break;
+  }
+}
+
+void LiftControl::setToSmallCup()
+{
+  // liftMotor.move_relative(120, 10);
+  // pros::delay(500);
+  liftState = 1;
+}
+
+void LiftControl::setToTallCup()
+{
+  // liftMotor.move(-120);
+  // pros::delay(500);
+  liftState = 2;
+}
+
+void LiftControl::reset()
+{
+  // liftMotor.move(-120);
+  triBar.move_voltage(0);
+  liftMotor.move_voltage(0);
+  liftState = 0;
+}
