@@ -20,9 +20,8 @@ ControllerButton pickUp(ControllerDigital::L1);
 ControllerButton lift(ControllerDigital::up);
 ControllerButton lower(ControllerDigital::down);
 
-void opcontrol()
-{
-	// CLEAN LCD first
+void opcontrol() {
+  // CLEAN LCD first
 	pros::lcd::clear_line(1);
 	pros::lcd::clear_line(2);
 	pros::lcd::clear_line(3);
@@ -32,66 +31,55 @@ void opcontrol()
 	pros::lcd::set_text(1, "Running in Operator Control Mode");
 
 	LiftControl lc;
-	double speed = -110;
+  double speed = -101;
 	double slower = 0;
-	while (true)
+  while(true)
 	{
-
-		//User Control code here
-		userDrive();
-		if (intakeButton.isPressed())
-		{
-			intakeMotorLeft.move(200);
-			intakeMotorRight.move(200);
-		}
-		else if (outtakeButton.isPressed())
-		{
-			intakeMotorLeft.move(-60);
-			intakeMotorRight.move(-60);
-		}
-		else
-		{
-			intakeMotorLeft.move(15);
-			intakeMotorRight.move(15);
-		}
-
-		if (drop.isPressed())
-		{
-			triBar.move(110);
-		}
-		else if (pickUp.isPressed())
-		{
-
-			triBar.move((int)speed);
-			slower += 0.0465;
-			speed += slower;
-			intakeMotorLeft.move(-30);
-			intakeMotorRight.move(-30);
-		}
-		else
-		{
-			triBar.move(10);
-			speed = -110;
-			slower = 0;
-		}
-
-		if (lift.isPressed())
-		{
-			liftMotor.move(-127);
-
-			lc.stepUp();
-		}
-		else if (lower.isPressed())
-		{
-			liftMotor.move(127);
-
-			lc.stepDown();
-		}
-		else
-		{
-			liftMotor.move(-8);
-		}
-		lc.Loop();
-		pros::delay(20);
+			//User Control code here
+			userDrive();
+			if(intakeButton.isPressed()){
+				intakeMotorLeft.move(200);
+				intakeMotorRight.move(200);
+			}
+			else if(outtakeButton.isPressed()){
+				intakeMotorLeft.move(-100);
+				intakeMotorRight.move(-100);
+			}
+			else{
+				intakeMotorLeft.move(15);
+				intakeMotorRight.move(15);
+			}
+			if(drop.isPressed()){
+				triBar.move(110);
+			}
+			else if(pickUp.isPressed()){
+				triBar.move((int)speed);
+				slower += 0.0515;
+			  speed += slower;
+				if(speed >= -75)
+				{
+					speed = -75;
+				}
+				intakeMotorLeft.move(-20);
+				intakeMotorRight.move(-20);
+			}
+			else{
+				triBar.move(10);
+				speed = -110;
+				slower = 0;
+			}
+			if(lift.isPressed()){
+				liftMotor.move(-127);
+				lc.stepUp();
+			}
+			else if(lower.isPressed()){
+				liftMotor.move(127);
+				lc.stepDown();
+			}
+			else{
+				liftMotor.move(-8);
+			}
+			lc.Loop();
+			  pros::delay(20);
 	}
 }

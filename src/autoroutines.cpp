@@ -7,6 +7,7 @@
 void skillRun()
 {
   pros::lcd::print(2, "Auto:  skillRun");
+  myChassis.moveDistance(meter*1.2);
   //insert autonomous code here
 }
 

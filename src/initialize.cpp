@@ -5,12 +5,12 @@ Controller controller;
 
 Motor intakeMotorRight(5, //motorPort
 	true, //reversed or not
-	AbstractMotor::gearset::green, //internal gearing
+	AbstractMotor::gearset::red, //internal gearing
 	AbstractMotor::encoderUnits::degrees); //measurement type
 
 	Motor intakeMotorLeft(6, //motorPort
 		false, //reversed or not
-		AbstractMotor::gearset::green, //internal gearing
+		AbstractMotor::gearset::red, //internal gearing
 		AbstractMotor::encoderUnits::degrees); //measurement type
 
 		Motor liftMotor(7, //motorPort
