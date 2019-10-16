@@ -31,12 +31,12 @@ void LiftControl::Loop()
 
   if(liftState > 0)
   {
-    if(intakeState == IntakeState::outtaking)
+    if(ControllerButton(ControllerDigital::up).changedToPressed())
     {
       intakeMotorLeft.move(-127);
       intakeMotorRight.move(-127);
     }
-    if(intakeState == IntakeState::intaking)
+    if(ControllerButton(ControllerDigital::down).changedToPressed())
     {
       intakeMotorLeft.move(127);
       intakeMotorRight.move(127);
@@ -48,9 +48,9 @@ void LiftControl::Loop()
 
 void LiftControl::handleIntakeOuttake()
 {
-  if(ControllerButton(ControllerDigital::right).changedToPressed())
+  if(ControllerButton(ControllerDigital::up).changedToPressed())
     intakeState = IntakeState::outtaking;
-  if(ControllerButton(ControllerDigital::left).changedToPressed())
+  if(ControllerButton(ControllerDigital::down).changedToPressed())
     intakeState = IntakeState::intaking;
 }
 
@@ -106,7 +106,7 @@ void LiftControl::setToTallCup()
 void LiftControl::reset()
 {
   // liftMotor.move(-120);
-  // triBar.move_voltage(0);
+  triBar.move_voltage(0);
   liftMotor.move_voltage(0);
   liftState = 0;
 }

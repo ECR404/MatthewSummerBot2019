@@ -56,12 +56,12 @@ void opcontrol() {
 				triBar.move((int)speed);
 				slower += 0.0515;
 			  speed += slower;
-				if(speed >= -75)
+				if(speed >= -53)
 				{
-					speed = -75;
+					speed = -53;
 				}
-				intakeMotorLeft.move(-20);
-				intakeMotorRight.move(-20);
+				intakeMotorLeft.move(-30);
+				intakeMotorRight.move(-30);
 			}
 			else{
 				triBar.move(10);
@@ -79,7 +79,6 @@ void opcontrol() {
 			else{
 				liftMotor.move(-8);
 			}
-			lc.Loop();
 			  pros::delay(20);
 	}
 }
