@@ -4,10 +4,18 @@
  * and subsequently called by the autonomous() selector based on LCD input
  **/
 
+// auto profileController = AsyncControllerFactory::motionProfile(10.0,2.0,10.0,myChassis);
+
 void skillRun()
 {
   pros::lcd::print(2, "Auto:  skillRun");
-  myChassis.moveDistance(meter*1.2);
+  liftMotor.moveAbsolute(100,-100);
+  //delay(200);
+//  delay(3000);
+/*  intakeMotorLeft.move(100);
+  intakeMotorRight.move(100);
+  drive.moveDistance(1.2_m);
+  drive.turnAngle(90_deg);*/
   //insert autonomous code here
 }
 

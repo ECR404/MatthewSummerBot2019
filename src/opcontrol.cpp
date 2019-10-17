@@ -54,31 +54,32 @@ void opcontrol() {
 			}
 			else if(pickUp.isPressed()){
 				triBar.move((int)speed);
-				slower += 0.0515;
+				slower += 0.0215; //.05115
 			  speed += slower;
-				if(speed >= -53)
+				if(speed >= -92)
 				{
-					speed = -53;
+					speed = -92;
 				}
-				intakeMotorLeft.move(-30);
-				intakeMotorRight.move(-30);
+				intakeMotorLeft.move(-20);
+				intakeMotorRight.move(-20);
 			}
 			else{
 				triBar.move(10);
 				speed = -110;
 				slower = 0;
 			}
-			if(lift.isPressed()){
-				liftMotor.move(-127);
+			if(lift.changedToPressed()){
+				// liftMotor.move(-127);
 				lc.stepUp();
 			}
-			else if(lower.isPressed()){
-				liftMotor.move(127);
+			else if(lower.changedToPressed()){
+				// liftMotor.move(127);
 				lc.stepDown();
 			}
 			else{
 				liftMotor.move(-8);
 			}
+			lc.Loop();
 			  pros::delay(20);
 	}
 }

@@ -15,42 +15,43 @@ LiftControl::LiftControl()
 
 void LiftControl::Loop()
 {
+  // handleIntakeOuttake();
+  pros::lcd::set_text(2, std::to_string(liftState));
   switch(liftState)
   {
     case 1:
-      liftMotor.move_absolute(300, 1000);
-      // triBar.move_absolute(-200, 1000);
+      liftMotor.move_absolute(300, 10000);
       break;
     case 2:
-      liftMotor.move_absolute(550, 1000);
+      liftMotor.move_absolute(550, 10000);
       break;
     case 0:
-      // liftMotor.move_voltage(0);
+      liftMotor.move_voltage(0);
       break;
   }
 
   if(liftState > 0)
   {
-    if(ControllerButton(ControllerDigital::up).changedToPressed())
-    {
-      intakeMotorLeft.move(-127);
-      intakeMotorRight.move(-127);
-    }
-    if(ControllerButton(ControllerDigital::down).changedToPressed())
-    {
-      intakeMotorLeft.move(127);
-      intakeMotorRight.move(127);
-    }
-
-    triBar.moveAbsolute(-300, 1000);
+    // if(intakeState == IntakeState::intaking)
+    // {
+    //   intakeMotorLeft.move(-127);
+    //   intakeMotorRight.move(-127);
+    // }
+    // if(intakeState == IntakeState::outtaking)
+    // {
+    //   intakeMotorLeft.move(127);
+    //   intakeMotorRight.move(127);
+    // }
+    // triBar.move_voltage(-12000);
   }
+
 }
 
 void LiftControl::handleIntakeOuttake()
 {
-  if(ControllerButton(ControllerDigital::up).changedToPressed())
+  if(ControllerButton(ControllerDigital::R1).changedToPressed())
     intakeState = IntakeState::outtaking;
-  if(ControllerButton(ControllerDigital::down).changedToPressed())
+  if(ControllerButton(ControllerDigital::R2).changedToPressed())
     intakeState = IntakeState::intaking;
 }
 
@@ -107,6 +108,6 @@ void LiftControl::reset()
 {
   // liftMotor.move(-120);
   triBar.move_voltage(0);
-  liftMotor.move_voltage(0);
+  // liftMotor.move_voltage(0);
   liftState = 0;
 }
