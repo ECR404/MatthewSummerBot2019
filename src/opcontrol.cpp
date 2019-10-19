@@ -46,19 +46,19 @@ void opcontrol() {
 				intakeMotorRight.move(-100);
 			}
 			else{
-				intakeMotorLeft.move(15);
-				intakeMotorRight.move(15);
+				intakeMotorLeft.move(0);
+				intakeMotorRight.move(0);
 			}
 			if(drop.isPressed()){
 				triBar.move(110);
 			}
 			else if(pickUp.isPressed()){
 				triBar.move((int)speed);
-				slower += 0.05115; //.05115
+				slower += 0.015; //.05115
 			  speed += slower;
-				if(speed >= -70)
+				if(speed >= -85)
 				{
-					speed = -70;
+					speed = -85;
 				}
 				intakeMotorLeft.move(-20);
 				intakeMotorRight.move(-20);

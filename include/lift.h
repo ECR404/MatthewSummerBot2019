@@ -10,6 +10,11 @@ class LiftControl
         int liftState;
         int intakeState;
         void handleIntakeOuttake();
+        pros::Task keepAtPos1Task;
+        pros::Task keepAtPos2Task;
+
+        void keepAtPosOne();
+        void keepAtPosTwo();
 
     public:
         LiftControl();
