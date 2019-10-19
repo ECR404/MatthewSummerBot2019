@@ -19,9 +19,9 @@ void skillRun()
   drive.moveDistance(1.1_m);
   liftMotor.move(0);
   drive.moveDistance(-.5_m);
-  drive.turnAngle(140_deg); //136
+  drive.turnAngle(-136_deg); //-136 blue 140 red
   drive.setMaxVelocity(150);
-  drive.moveDistance(.5_m);
+  drive.moveDistance(.4_m);
   intakeMotorLeft.move(-65);
   intakeMotorRight.move(-65);
   triBar.moveAbsolute(-630,40);
