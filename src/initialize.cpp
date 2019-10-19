@@ -8,7 +8,7 @@ Motor intakeMotorRight(5, //motorPort
 	AbstractMotor::gearset::red, //internal gearing
 	AbstractMotor::encoderUnits::degrees); //measurement type
 
-	Motor intakeMotorLeft(6, //motorPort
+	Motor intakeMotorLeft(9, //motorPort
 		false, //reversed or not
 		AbstractMotor::gearset::red, //internal gearing
 		AbstractMotor::encoderUnits::degrees); //measurement type

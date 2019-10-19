@@ -21,6 +21,7 @@ void LiftControl::Loop()
   {
     case 1:
       liftMotor.move_absolute(300, 10000);
+      pros::delay(200);
       break;
     case 2:
       liftMotor.move_absolute(550, 10000);

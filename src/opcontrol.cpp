@@ -31,7 +31,7 @@ void opcontrol() {
 	pros::lcd::set_text(1, "Running in Operator Control Mode");
 
 	LiftControl lc;
-  double speed = -101;
+  double speed = -200;
 	double slower = 0;
   while(true)
 	{
@@ -54,11 +54,11 @@ void opcontrol() {
 			}
 			else if(pickUp.isPressed()){
 				triBar.move((int)speed);
-				slower += 0.0215; //.05115
+				slower += 0.05115; //.05115
 			  speed += slower;
-				if(speed >= -92)
+				if(speed >= -70)
 				{
-					speed = -92;
+					speed = -70;
 				}
 				intakeMotorLeft.move(-20);
 				intakeMotorRight.move(-20);
