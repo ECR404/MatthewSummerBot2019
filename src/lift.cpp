@@ -20,11 +20,10 @@ void LiftControl::Loop()
   switch(liftState)
   {
     case 1:
-      liftMotor.move_absolute(300, 10000);
-      pros::delay(200);
+      liftMotor.move_absolute(400, 10000);
       break;
     case 2:
-      liftMotor.move_absolute(550, 10000);
+      liftMotor.move_absolute(650, 10000);
       break;
     case 0:
       liftMotor.move_voltage(0);
