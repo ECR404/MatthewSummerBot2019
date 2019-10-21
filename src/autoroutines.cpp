@@ -9,26 +9,27 @@
 void skillRun()
 {
   pros::lcd::print(2, "Auto:  skillRun");
-  liftMotor.moveAbsolute(100,-100);
+  liftMotor.moveAbsolute(250,-100);
   pros::delay(300);
   liftMotor.move(-18);
   pros::delay(500);
   intakeMotorLeft.move(100);
   intakeMotorRight.move(100);
-  drive.setMaxVelocity(45);
-  drive.moveDistance(1.27_m);
+  drive.setMaxVelocity(40);
+  drive.moveDistance(1.1_m);
   liftMotor.move(0);
-  drive.turnAngle(140_deg);
+  drive.moveDistance(-.5_m);
+  drive.turnAngle(140_deg); //136
   drive.setMaxVelocity(150);
-  drive.moveDistance(1.22_m);
-  intakeMotorLeft.move(-55);
-  intakeMotorRight.move(-55);
-  triBar.moveAbsolute(-630,45);
+  drive.moveDistance(.5_m);
+  intakeMotorLeft.move(-65);
+  intakeMotorRight.move(-65);
+  triBar.moveAbsolute(-630,40);
   pros::delay(2000);
   intakeMotorLeft.move(-100);
   intakeMotorRight.move(-100);
   drive.setMaxVelocity(200);
-  drive.moveDistance(-1_m);
+  drive.moveDistance(-.5_m);
 }
 
 void autoRedLeft()
