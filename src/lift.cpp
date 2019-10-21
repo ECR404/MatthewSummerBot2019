@@ -1,5 +1,6 @@
 #include "main.h"
 #include "lift.h"
+#include "treelarlib.h"
 
 LiftControl::LiftControl()
 {
@@ -22,12 +23,12 @@ void LiftControl::Loop()
   switch(liftState)
   {
     case 1:
-      // liftMotor.move_absolute(450, 1000);
-      // pros::delay(200);
+      
       break;
     case 2:
-
+      
       break;
+      
     case 0:
       liftMotor.move_voltage(0);
       break;
