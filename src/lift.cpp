@@ -1,5 +1,6 @@
 #include "main.h"
 #include "lift.h"
+#include "treelarlib.h"
 
 enum IntakeState
 {
@@ -20,11 +21,10 @@ void LiftControl::Loop()
   switch(liftState)
   {
     case 1:
-      liftMotor.move_absolute(300, 10000);
-      pros::delay(200);
+      stickMotor(liftMotor, 300, 1000);
       break;
     case 2:
-      liftMotor.move_absolute(550, 10000);
+      stickMotor(liftMotor, 550, 1000);
       break;
     case 0:
       liftMotor.move_voltage(0);

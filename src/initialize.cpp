@@ -112,7 +112,7 @@ Motor intakeMotorRight(5, //motorPort
 					//this will start a task using the sampleTaskFn we declared in sample.h and
 					//defined in sample.cpp, tasks run in parallel to other tasks, and the
 					//userControl loop
-					pros::Task sampleTask(sampleTaskFn);
+					// pros::Task sampleTask(sampleTaskFn);
 				}
 
 				/**
