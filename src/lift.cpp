@@ -5,10 +5,9 @@
 LiftControl::LiftControl()
 {
   liftState = 0;
-  intakeState = IntakeState::intaking;
 
-  pros::Task keepAtPos1Task(keepAtPosOne, NULL, "keepAtPosOne");
-  pros::Task keepAtPos2Task(keepAtPosTwo, NULL, "keepAtPosTwo");
+  pros::Task keepAtPos1Task(keepAtPosOne);
+  pros::Task keepAtPos2Task(keepAtPosTwo);
 
   keepAtPos1Task.suspend();
   keepAtPos2Task.suspend();
@@ -36,28 +35,10 @@ void LiftControl::Loop()
 
   if(liftState > 0)
   {
-    // if(intakeState == IntakeState::intaking)
-    // {
-    //   intakeMotorLeft.move(-127);
-    //   intakeMotorRight.move(-127);
-    // }
-    // if(intakeState == IntakeState::outtaking)
-    // {
-    //   intakeMotorLeft.move(127);
-    //   intakeMotorRight.move(127);
-    // }
     triBar.move_absolute(500, 200);
   }
 
 }
-
-// void LiftControl::handleIntakeOuttake()
-// {
-//   if(ControllerButton(ControllerDigital::R1).changedToPressed())
-//     intakeState = IntakeState::outtaking;
-//   if(ControllerButton(ControllerDigital::R2).changedToPressed())
-//     intakeState = IntakeState::intaking;
-// }
 
 void LiftControl::stepUp()
 {
@@ -98,7 +79,7 @@ void LiftControl::setToSmallCup()
 {
   // liftMotor.move_relative(120, 10);
   // pros::delay(500);
-  keepAtPos2Task.suspend()
+  keepAtPos2Task.suspend();
   keepAtPos1Task.resume();
   liftState = 1;
 }
