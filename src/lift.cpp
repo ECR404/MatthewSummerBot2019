@@ -84,7 +84,7 @@ void LiftControl::setToSmallCup()
   liftState = 1;
 }
 
-void LiftControl::keepAtPosOne()
+void LiftControl::keepAtPosOne(void* params)
 {
   liftMotor.move_absolute(400, 1000);
   while(liftMotor.get_position() < 400-5 && liftMotor.get_position() > 400+5)
@@ -102,7 +102,7 @@ void LiftControl::setToTallCup()
   liftState = 2;
 }
 
-void LiftControl::keepAtPosTwo()
+void LiftControl::keepAtPosTwo(void* params)
 {
   liftMotor.move_absolute(650, 1000);
   while(liftMotor.get_position() < 650-5 && liftMotor.get_position() > 650+5)

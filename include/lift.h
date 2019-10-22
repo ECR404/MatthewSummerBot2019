@@ -13,8 +13,8 @@ class LiftControl
         pros::Task keepAtPos1Task;
         pros::Task keepAtPos2Task;
 
-        void keepAtPosOne();
-        void keepAtPosTwo();
+        void keepAtPosOne(void* params);
+        void keepAtPosTwo(void* params);
 
     public:
         LiftControl();
