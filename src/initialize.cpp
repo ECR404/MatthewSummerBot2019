@@ -20,7 +20,7 @@ Motor intakeMotorRight(5, //motorPort
 
 			Motor triBar(8, //motorPort
 				false, //reversed or not
-				AbstractMotor::gearset::green, //internal gearing
+				AbstractMotor::gearset::red, //internal gearing
 				AbstractMotor::encoderUnits::degrees); //measurement type
 				//add other motors and sensors here
 

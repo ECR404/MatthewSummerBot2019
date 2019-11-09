@@ -9,7 +9,7 @@
 void skillRun()
 {
   pros::lcd::print(2, "Auto:  skillRun");
-  liftMotor.moveAbsolute(250,-100);
+  liftMotor.moveAbsolute(350,-180);
   pros::delay(300);
   liftMotor.move(-18);
   pros::delay(500);
@@ -19,9 +19,9 @@ void skillRun()
   drive.moveDistance(1.1_m);
   liftMotor.move(0);
   drive.moveDistance(-.5_m);
-  drive.turnAngle(-136_deg); //-136 blue 140 red
+  drive.turnAngle(140_deg); //-137 blue 140 red
   drive.setMaxVelocity(150);
-  drive.moveDistance(.4_m);
+  drive.moveDistance(.5_m);
   intakeMotorLeft.move(-65);
   intakeMotorRight.move(-65);
   triBar.moveAbsolute(-630,40);
@@ -30,6 +30,42 @@ void skillRun()
   intakeMotorRight.move(-100);
   drive.setMaxVelocity(200);
   drive.moveDistance(-.5_m);
+
+
+
+
+/*  liftMotor.moveAbsolute(350,-180);
+  pros::delay(300);
+  liftMotor.move(-10);
+  pros::delay(500);
+  triBar.move(10);
+  intakeMotorLeft.move(100);
+  intakeMotorRight.move(100);
+  drive.setMaxVelocity(130);
+  drive.moveDistance(1.1_m); // first move forward
+  liftMotor.move(-5);
+  drive.moveDistance(-.5_m);
+  drive.setMaxVelocity(200);
+  drive.turnAngle(58_deg); //first turn to adjust for next line
+  //drive.setMaxVelocity(200);
+  drive.moveDistance(-.8_m);
+  drive.turnAngle(-47_deg); //turn to second line
+  drive.moveDistance(1_m);//move forward to pick up
+  drive.setMaxVelocity(150);
+  drive.moveDistance(-.5_m);
+  drive.setMaxVelocity(200);
+  drive.turnAngle(-130_deg); //-136  blue 140 red  turn to aim
+  drive.moveDistance(.5_m);
+  intakeMotorLeft.move(-65);
+  intakeMotorRight.move(-65);
+  triBar.move(0);
+  triBar.moveAbsolute(-630,50);
+  pros::delay(1800);
+  intakeMotorLeft.move(-100);
+  intakeMotorRight.move(-100);
+  drive.setMaxVelocity(200);
+  drive.moveDistance(-.5_m);
+  */
 }
 
 void autoRedLeft()
