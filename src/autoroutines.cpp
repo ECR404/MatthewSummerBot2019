@@ -9,6 +9,10 @@
 void skillRun()
 {
   pros::lcd::print(2, "Auto:  skillRun");
+
+  triBar.moveAbsolute(-630,40);
+
+  return;
   liftMotor.moveAbsolute(350,-180);
   pros::delay(300);
   liftMotor.move(-18);
