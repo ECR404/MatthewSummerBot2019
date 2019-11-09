@@ -22,7 +22,7 @@ ControllerButton lower(ControllerDigital::down);
 ControllerButton armUp(ControllerDigital::X);
 ControllerButton armDown(ControllerDigital::B);
 
-double tribarMultiplier = 0.5;
+double tribarMultiplier = 0.7;
 
 void opcontrol() {
   // CLEAN LCD first
