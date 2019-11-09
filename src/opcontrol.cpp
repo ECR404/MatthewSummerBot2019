@@ -54,7 +54,7 @@ void opcontrol() {
 				intakeMotorRight.move(10);
 			}
 			if(drop.isPressed()){
-				triBar.move(50);
+				triBar.move(65);
 			}
 			else if(pickUp.isPressed())
 			{

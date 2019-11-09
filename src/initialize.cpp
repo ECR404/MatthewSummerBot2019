@@ -3,7 +3,7 @@
 //DEVICE DEFINITIONS
 Controller controller;
 
-Motor intakeMotorRight(5, //motorPort
+Motor intakeMotorRight(4, //motorPort
 	true, //reversed or not
 	AbstractMotor::gearset::red, //internal gearing
 	AbstractMotor::encoderUnits::degrees); //measurement type
