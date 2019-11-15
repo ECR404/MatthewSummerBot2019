@@ -22,6 +22,8 @@ ControllerButton lower(ControllerDigital::down);
 ControllerButton armUp(ControllerDigital::X);
 ControllerButton armDown(ControllerDigital::B);
 
+double tribarMultiplier = 0.7;
+
 void opcontrol() {
   // CLEAN LCD first
 	pros::lcd::clear_line(1);
@@ -54,17 +56,21 @@ void opcontrol() {
 				intakeMotorRight.move(10);
 			}
 			if(drop.isPressed()){
+<<<<<<< HEAD
 				triBar.move(65);
+=======
+				triBar.move(50*tribarMultiplier);
+>>>>>>> 62bc3dd07425f3d2fe6ebfaf6a76d81d88cf6cac
 			}
 			else if(pickUp.isPressed())
 			{
 				if(triBar.getPosition() >= -300)
 				{
-					triBar.move(-200);
+					triBar.move(-200*tribarMultiplier);
 				}
 			else if(triBar.getPosition() < -300)
 				{
-					triBar.move(-75);
+					triBar.move(-60*tribarMultiplier);
 				}
 
 		/*		slower += 0.00000000001; //.05115
@@ -77,7 +83,7 @@ void opcontrol() {
 				intakeMotorRight.move(-5);
 			}
 			else{
-				triBar.move(10);
+				triBar.move(10*tribarMultiplier);
 				speed = -130;
 				slower = 0;
 			}

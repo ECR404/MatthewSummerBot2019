@@ -13,13 +13,13 @@ Motor intakeMotorRight(4, //motorPort
 		AbstractMotor::gearset::red, //internal gearing
 		AbstractMotor::encoderUnits::degrees); //measurement type
 
-		Motor liftMotor(7, //motorPort
+		Motor liftMotor(10, //motorPort
 			true, //reversed or not
 			AbstractMotor::gearset::red, //internal gearing
 			AbstractMotor::encoderUnits::degrees); //measurement type
 
 			Motor triBar(8, //motorPort
-				false, //reversed or not
+				true, //reversed or not
 				AbstractMotor::gearset::red, //internal gearing
 				AbstractMotor::encoderUnits::degrees); //measurement type
 				//add other motors and sensors here
