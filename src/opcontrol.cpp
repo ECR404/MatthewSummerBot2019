@@ -64,7 +64,7 @@ void opcontrol() {
 				}
 			else if(triBar.getPosition() < -300)
 				{
-					triBar.move(-75);
+					triBar.move(-60);
 				}
 
 		/*		slower += 0.00000000001; //.05115

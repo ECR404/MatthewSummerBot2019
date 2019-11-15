@@ -19,7 +19,7 @@ void skillRun()
   drive.moveDistance(1.1_m);
   liftMotor.move(0);
   drive.moveDistance(-.5_m);
-  drive.turnAngle(140_deg); //-137 blue 140 red
+  drive.turnAngle(-137_deg); //-137 blue 140 red
   drive.setMaxVelocity(150);
   drive.moveDistance(.5_m);
   intakeMotorLeft.move(-65);
