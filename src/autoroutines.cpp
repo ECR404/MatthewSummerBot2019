@@ -10,9 +10,44 @@ void skillRun()
 {
   pros::lcd::print(2, "Auto:  skillRun");
 
-  triBar.moveAbsolute(-630,40);
+/*
+drive.setMaxVelocity(70);
+drive.moveDistance(-.3_m);
+drive.moveDistance(.8_m);
+drive.moveDistance(-.5_m);
+*/
 
-  return;
+
+  intakeMotorLeft.move(-100);
+  intakeMotorRight.move(-100);
+  drive.setMaxVelocity(80);
+  drive.moveDistance(1.5_m);
+  drive.turnAngle(180_deg);
+  drive.moveDistance(1_m);
+  drive.turnAngle(45_deg);
+  drive.moveDistance(.65_m);
+  triBar.moveAbsolute(180,-180);
+  intakeMotorLeft.move(20);
+  intakeMotorRight.move(20);
+  pros::delay(2.5);
+  drive.moveDistance(-.5_m);
+
+
+
+  /*
+  intakeMotorLeft.move(65);
+  intakeMotorRight.move(65);
+  drive.moveDistance(.25_m);
+  liftMotor.move(65);
+  pros::delay(3000);
+  drive.moveDistance(.1_m);
+  drive.moveDistance(-.5_m);
+
+
+
+
+/*
+
   liftMotor.moveAbsolute(350,-180);
   pros::delay(300);
   liftMotor.move(-18);

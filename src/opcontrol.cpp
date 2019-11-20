@@ -13,10 +13,10 @@
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
-ControllerButton intakeButton(ControllerDigital::R1);
-ControllerButton outtakeButton(ControllerDigital::R2);
-ControllerButton drop(ControllerDigital::L2);
-ControllerButton pickUp(ControllerDigital::L1);
+ControllerButton intakeButton(ControllerDigital::R2);
+ControllerButton outtakeButton(ControllerDigital::R1);
+ControllerButton drop(ControllerDigital::L1);
+ControllerButton pickUp(ControllerDigital::L2);
 ControllerButton lift(ControllerDigital::up);
 ControllerButton lower(ControllerDigital::down);
 ControllerButton armUp(ControllerDigital::X);
@@ -43,24 +43,32 @@ void opcontrol() {
 		//liftMotor.move(127);
 			//User Control code here
 			userDrive();
-			if(intakeButton.isPressed()){
-				intakeMotorLeft.move(200);
-				intakeMotorRight.move(200);
+			if(intakeButton.isPressed())
+			{
+				intakeMotorLeft.move(-200);
+				intakeMotorRight.move(-200);
 			}
-			else if(outtakeButton.isPressed()){
-				intakeMotorLeft.move(-100);
-				intakeMotorRight.move(-100);
+			else if(outtakeButton.isPressed())
+			{
+				intakeMotorLeft.move(100);
+				intakeMotorRight.move(100);
 			}
-			else{
-				intakeMotorLeft.move(10);
-				intakeMotorRight.move(10);
+			else
+			{
+				intakeMotorLeft.move(-10);
+				intakeMotorRight.move(-10);
 			}
 			if(drop.isPressed()){
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 				triBar.move(65);
 =======
 				triBar.move(50*tribarMultiplier);
 >>>>>>> 62bc3dd07425f3d2fe6ebfaf6a76d81d88cf6cac
+=======
+				triBar.move(65);
+				triBar.move(110*tribarMultiplier);
+>>>>>>> Stashed changes
 			}
 			else if(pickUp.isPressed())
 			{
@@ -73,15 +81,15 @@ void opcontrol() {
 					triBar.move(-60*tribarMultiplier);
 				}
 
-		/*		slower += 0.00000000001; //.05115
-			  speed += slower;
-				if(speed >= -80)
-				{
-					speed = -80;
-				} */
-				intakeMotorLeft.move(-5);
-				intakeMotorRight.move(-5);
-			}
+		// slower += 0.00000000001; //.05115
+		// 	  speed += slower;
+		// 		if(speed >= -80)
+		// 		{
+		// 			speed = -80;
+		// 		}
+		// 		intakeMotorLeft.move(-5);
+		// 		intakeMotorRight.move(-5);
+		// 	}
 			else{
 				triBar.move(10*tribarMultiplier);
 				speed = -130;
