@@ -59,16 +59,8 @@ void opcontrol() {
 				intakeMotorRight.move(-10);
 			}
 			if(drop.isPressed()){
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-				triBar.move(65);
-=======
-				triBar.move(50*tribarMultiplier);
->>>>>>> 62bc3dd07425f3d2fe6ebfaf6a76d81d88cf6cac
-=======
 				triBar.move(65);
 				triBar.move(110*tribarMultiplier);
->>>>>>> Stashed changes
 			}
 			else if(pickUp.isPressed())
 			{
@@ -89,7 +81,7 @@ void opcontrol() {
 		// 		}
 		// 		intakeMotorLeft.move(-5);
 		// 		intakeMotorRight.move(-5);
-		// 	}
+			}
 			else{
 				triBar.move(10*tribarMultiplier);
 				speed = -130;
